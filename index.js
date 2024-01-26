@@ -1,7 +1,11 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
+const userRouter = require("./routes/userRouter");
 
 const app = express();
+app.use("/api", userRouter);
+
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
